@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap");
+:root {
+  --gradient: linear-gradient(
+    to right top,
+    #5356db,
+    #744edc,
+    #9141d9,
+    #ac2fd4,
+    #c500cc
+  );
+  --button: linear-gradient(104deg, #5356db 0%, #c500cc 100%);
+
+  --btn: ;
+}
+
+html,
+body {
+  height: 100%;
+  background-image: var(--gradient);
+}
+
+.form-signin {
+  background-color: #fff;
+  max-width: 40rem;
+  padding: 5rem;
+  border-radius: 30px;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.tab-content h1 {
+  font-family: Roboto, sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.nav-item {
+  font-size: 20px;
+}
+
+.tab-btn {
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  font-size: 23px;
+  color: #fff;
+  background-image: var(--button);
+  padding: 10px 30px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+    rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  border-radius: 20px;
+  transition: 970ms;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+.tab-btn:hover {
+  transition: 970ms;
+  padding: 10px 30px;
+  transform: translateY(-19px);
+  background: linear-gradient(104deg, #5356db 0%, #c500cc 100%);
+  color: #ffffff;
+  border: none;
+}
+
+.signup-btn {
+  display: flex;
+  padding: 0.875em 2em;
+  background: linear-gradient(90deg, #5356db, transparent) #2196f3;
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  font-size: 23px;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 500ms;
+  place-content: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 15px;
+}
+
+.signup-btn:hover {
+  background-color: #c500cc;
+  color: #fff;
+}
+
+@media (max-width: 500px) {
+  .tab-btn {
+    transform: none;
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .signup-btn {
+    font-size: 18px;
+  }
+}
