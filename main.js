@@ -1,4 +1,21 @@
-let members = [];
+let arrMembers = [];
+
+class Person {
+    constructor(number, name, age, allowance) {
+        this.number = number;
+        this.name = name;
+        this.age = age;
+        this.allowance = allowance;
+    }
+
+    async save() {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve();
+            }, 1000);
+        });
+    }
+}
 
 // Validasi input
 function validateInput() {
@@ -28,7 +45,7 @@ async function addMember() {
     let allowanceInput = document.getElementById("allowanceInput").value;
     let memberTable = document.getElementById("membersTable");
 
-    const newRow = memberTable.insertRow(-1);
+    const newRow = memberTable.insertRow();
     const rowNumber = memberTable.rows.length;
 
     newRow.insertCell(0).textContent = rowNumber;
@@ -36,9 +53,9 @@ async function addMember() {
     newRow.insertCell(2).textContent = ageInput;
     newRow.insertCell(3).textContent = allowanceInput;
 
-    let member = new Member(rowNumber, nameInput, ageInput, allowanceInput);
-    await member.save();
-    members.push(member);
+    let addMembers = new Person(rowNumber, nameInput, ageInput, allowanceInput);
+    await addMembers.save();
+    arrMembers.push(addMembers);
 }
 
 // Mencari rata-rata dari umur & uang saku
@@ -65,22 +82,6 @@ function average() {
     document.getElementById("resumeAllowance").innerHTML = "Rata-rata Uang Saku: " + averageAllowance
 }
 
-class Member {
-    constructor(number, name, age, allowance) {
-        this.number = number;
-        this.name = name;
-        this.age = age;
-        this.allowance = allowance;
-    }
-
-    async save() {
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve();
-            }, 1000);
-        });
-    }
-}
 
 // Eventlistener
 let form = document.getElementById("form")
@@ -90,7 +91,6 @@ registerButton.addEventListener("click", async function (event) {
     if (validateInput()) {
         await addMember();
         form.reset();
-        average()
-
+        average();
     }
 });
