@@ -8,7 +8,7 @@ class Person {
         this.allowance = allowance;
     }
 
-    async save() {
+    save() {
         return new Promise((resolve) => {
             setTimeout(() => {
                 resolve();
@@ -82,6 +82,8 @@ function average() {
     document.getElementById("resumeAllowance").innerHTML = "Rata-rata Uang Saku: " + averageAllowance
 }
 
+// Triger Modal
+const myModal = new bootstrap.Modal(document.getElementById("modal-signup"))
 
 // Eventlistener
 let form = document.getElementById("form")
@@ -90,7 +92,12 @@ registerButton.addEventListener("click", async function (event) {
     event.preventDefault();
     if (validateInput()) {
         await addMember();
+        myModal.show();
         form.reset();
         average();
     }
+    setTimeout(() => {
+        myModal.hide();
+    }, 3000);
 });
+

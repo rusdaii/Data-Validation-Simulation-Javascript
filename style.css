@@ -101,3 +101,15 @@ body {
     font-size: 18px;
   }
 }
+
+/* Modal */
+.modal-body i {
+  color: green;
+  font-size: 100px;
+}
+
+.modal-body p {
+  font-family: Roboto, sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+}
