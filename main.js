@@ -2,8 +2,7 @@ let arrMembers = [];
 let form = document.getElementById("form")
 
 class Person {
-    constructor(number, name, age, allowance) {
-        this.number = number;
+    constructor(name, age, allowance) {
         this.name = name;
         this.age = age;
         this.allowance = allowance;
@@ -32,7 +31,7 @@ function validateInput() {
         return false;
     }
     if (allowanceInput < 100000 || allowanceInput > 1000000) {
-        alert("Uang Sangu harus antara 100 ribu dan 1 juta");
+        alert("Uang Saku harus antara 100 ribu sampai 1 juta");
         return false;
     }
     return true;
@@ -54,7 +53,7 @@ async function addMember() {
     newRow.insertCell(2).textContent = ageInput;
     newRow.insertCell(3).textContent = allowanceInput;
 
-    let addMembers = new Person(rowNumber, nameInput, ageInput, allowanceInput);
+    let addMembers = new Person(nameInput, ageInput, allowanceInput);
     await addMembers.save();
     arrMembers.push(addMembers);
 }
@@ -83,7 +82,7 @@ function average() {
     document.getElementById("resumeAllowance").innerHTML = "Rata-rata Uang Saku: " + averageAllowance
 }
 
-// Triger Modal
+// Triger Modal Bootstrap
 const myModal = new bootstrap.Modal(document.getElementById("modal-signup"))
 
 // Eventlistener
