@@ -1,4 +1,5 @@
 let arrMembers = [];
+let form = document.getElementById("form")
 
 class Person {
     constructor(number, name, age, allowance) {
@@ -10,18 +11,17 @@ class Person {
 
     save() {
         return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve();
-            }, 1000);
+            setTimeout(resolve, 1000);
         });
     }
 }
 
 // Validasi input
 function validateInput() {
-    let nameInput = document.getElementById("nameInput").value;
-    let ageInput = document.getElementById("ageInput").value;
-    let allowanceInput = document.getElementById("allowanceInput").value;
+    const formData = new FormData(form)
+    const nameInput = formData.get('nameInput')
+    const ageInput = formData.get('ageInput')
+    const allowanceInput = formData.get('allowanceInput')
 
     if (nameInput.length < 10) {
         alert("Nama harus memiliki minimal 10 karakter");
@@ -40,10 +40,11 @@ function validateInput() {
 
 // Menambahkan member ke tabel
 async function addMember() {
-    let nameInput = document.getElementById("nameInput").value;
-    let ageInput = document.getElementById("ageInput").value;
-    let allowanceInput = document.getElementById("allowanceInput").value;
-    let memberTable = document.getElementById("membersTable");
+    const formData = new FormData(form)
+    const nameInput = formData.get('nameInput')
+    const ageInput = formData.get('ageInput')
+    const allowanceInput = formData.get('allowanceInput')
+    const memberTable = document.getElementById("membersTable");
 
     const newRow = memberTable.insertRow();
     const rowNumber = memberTable.rows.length;
@@ -86,9 +87,8 @@ function average() {
 const myModal = new bootstrap.Modal(document.getElementById("modal-signup"))
 
 // Eventlistener
-let form = document.getElementById("form")
 let registerButton = document.getElementById("registerBtn")
-registerButton.addEventListener("click", async function (event) {
+form.addEventListener("submit", async function (event) {
     event.preventDefault();
     if (validateInput()) {
         await addMember();
