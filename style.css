@@ -45,15 +45,11 @@ body {
   font-weight: 300;
   font-size: 23px;
   color: #fff;
-  background-image: var(--button);
+  background: linear-gradient(90deg, #5356db, transparent) #2196f3;
   padding: 10px 30px;
   border: none;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
-    rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
-    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
-  border-radius: 20px;
-  transition: 970ms;
-  transform: translateY(0);
+  border-radius: 15px;
+  transition: background-color 500ms;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -61,12 +57,8 @@ body {
 }
 
 .tab-btn:hover {
-  transition: 970ms;
-  padding: 10px 30px;
-  transform: translateY(-19px);
-  background: linear-gradient(104deg, #5356db 0%, #c500cc 100%);
-  color: #ffffff;
-  border: none;
+  background-color: #c500cc;
+  color: #fff;
 }
 
 .signup-btn {
